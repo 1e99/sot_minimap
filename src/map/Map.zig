@@ -7,6 +7,12 @@ islands: []sot.Island,
 camera: ray.Camera2D = .{
     .zoom = 1,
 },
+water_color: ray.Color = .{
+    .r = 0x57,
+    .g = 0xb9,
+    .b = 0xec,
+    .a = 0xff,
+},
 
 pub fn update(self: *Self) void {
     if (ray.IsMouseButtonDown(ray.MOUSE_BUTTON_LEFT)) {
@@ -37,7 +43,7 @@ fn drawIslands(self: *Self) void {
     ray.BeginMode2D(self.camera);
     defer ray.EndMode2D();
 
-    ray.ClearBackground(ray.BLUE);
+    ray.ClearBackground(self.water_color);
 
     var name_buffer: [1024]u8 = undefined;
     const font_size: f32 = 20 / self.camera.zoom;
