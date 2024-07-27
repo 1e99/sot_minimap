@@ -1,0 +1,821 @@
+[
+  {
+    "name": "island.discovery_ridge",
+    "type": "normal",
+    "region": "ancient_isles",
+    "x": -372243.25,
+    "y": 307080
+  },
+  {
+    "name": "island.skd_feature_tale5_spire",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": -570869.9375,
+    "y": -285826.96875
+  },
+  {
+    "name": "island.skd_feature_tale5_spire",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": 324859.75,
+    "y": -543413.625
+  },
+  {
+    "name": "island.skd_feature_tale5_spire",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": 249269.4375,
+    "y": 558220.375
+  },
+  {
+    "name": "island.skd_feature_tale5_spire",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": -285688.8125,
+    "y": 554523.25
+  },
+  {
+    "name": "island.skd_feature_tale5_spire",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": -554016.375,
+    "y": 214181.9375
+  },
+  {
+    "name": "island.skd_feature_tale5_spire",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": -414570.53125,
+    "y": -670426.8125
+  },
+  {
+    "name": "island.snake_island",
+    "type": "normal",
+    "region": "ancient_isles",
+    "x": 3710.158935546875,
+    "y": 236076.25
+  },
+  {
+    "name": "island.crooks_hollow",
+    "type": "normal",
+    "region": "ancient_isles",
+    "x": 160696.125,
+    "y": 246717.53125
+  },
+  {
+    "name": "island.thieves_haven",
+    "type": "normal",
+    "region": "ancient_isles",
+    "x": 104846.390625,
+    "y": 475028.09375
+  },
+  {
+    "name": "island.sharkbait_cove",
+    "type": "normal",
+    "region": "ancient_isles",
+    "x": -178150.234375,
+    "y": 456929
+  },
+  {
+    "name": "island.devils_ridge",
+    "type": "normal",
+    "region": "ancient_isles",
+    "x": 316828.03125,
+    "y": 446460.78125
+  },
+  {
+    "name": "island.plunder_valley",
+    "type": "normal",
+    "region": "ancient_isles",
+    "x": -239064,
+    "y": 252742
+  },
+  {
+    "name": "island.chicken_isle",
+    "type": "normal",
+    "region": "ancient_isles",
+    "x": -107300.875,
+    "y": 240084.078125
+  },
+  {
+    "name": "island.fools_lagoon",
+    "type": "normal",
+    "region": "ancient_isles",
+    "x": -90857,
+    "y": 156497
+  },
+  {
+    "name": "island.castaway_isle",
+    "type": "normal",
+    "region": "ancient_isles",
+    "x": -6018.6103515625,
+    "y": 128470.5625
+  },
+  {
+    "name": "island.paradise_spring",
+    "type": "normal",
+    "region": "ancient_isles",
+    "x": 78691,
+    "y": 322108
+  },
+  {
+    "name": "island.cutlass_cay",
+    "type": "normal",
+    "region": "ancient_isles",
+    "x": 147362.328125,
+    "y": 368950.25
+  },
+  {
+    "name": "island.lost_gold_fort",
+    "type": "skeleton_fort",
+    "region": "ancient_isles",
+    "x": -139744.875,
+    "y": 338708.625
+  },
+  {
+    "name": "island.cannon_cove",
+    "type": "normal",
+    "region": "shores_of_plenty",
+    "x": -250955.75,
+    "y": -102819.3515625
+  },
+  {
+    "name": "island.crescent_isle",
+    "type": "normal",
+    "region": "shores_of_plenty",
+    "x": -501376.78125,
+    "y": -129283.3515625
+  },
+  {
+    "name": "island.lone_cove",
+    "type": "normal",
+    "region": "shores_of_plenty",
+    "x": -156345.375,
+    "y": -308567.3125
+  },
+  {
+    "name": "island.mermaids_hideaway",
+    "type": "normal",
+    "region": "shores_of_plenty",
+    "x": -501359.5625,
+    "y": 102282.8984375
+  },
+  {
+    "name": "island.sailors_bounty",
+    "type": "normal",
+    "region": "shores_of_plenty",
+    "x": -486828,
+    "y": -404354.21875
+  },
+  {
+    "name": "island.smugglers_bay",
+    "type": "normal",
+    "region": "shores_of_plenty",
+    "x": -304909.25,
+    "y": -463571.125
+  },
+  {
+    "name": "island.wanderers_refuge",
+    "type": "normal",
+    "region": "shores_of_plenty",
+    "x": -264858.46875,
+    "y": 60937.05859375
+  },
+  {
+    "name": "island.sanctuary_outpost",
+    "type": "outpost",
+    "region": "shores_of_plenty",
+    "x": -298619.625,
+    "y": -259719.25
+  },
+  {
+    "name": "island.port_merrick",
+    "type": "outpost",
+    "region": "shores_of_plenty",
+    "x": -385895.25,
+    "y": -55757.49609375
+  },
+  {
+    "name": "island.plunder_outpost",
+    "type": "outpost",
+    "region": "ancient_isles",
+    "x": -14643.296875,
+    "y": 381227.25
+  },
+  {
+    "name": "island.mutineer_rock",
+    "type": "normal",
+    "region": "ancient_isles",
+    "x": 209908.46875,
+    "y": 445165.09375
+  },
+  {
+    "name": "island.boulder_cay",
+    "type": "normal",
+    "region": "shores_of_plenty",
+    "x": -250696,
+    "y": -369925
+  },
+  {
+    "name": "island.salty_sands",
+    "type": "normal",
+    "region": "shores_of_plenty",
+    "x": -197952,
+    "y": -449382
+  },
+  {
+    "name": "island.keel_haul_fort",
+    "type": "skeleton_fort",
+    "region": "shores_of_plenty",
+    "x": -440567,
+    "y": -285532
+  },
+  {
+    "name": "island.sailors_knot_stronghold",
+    "type": "skeleton_fort",
+    "region": "shores_of_plenty",
+    "x": -350881,
+    "y": 160155
+  },
+  {
+    "name": "island.twin_groves",
+    "type": "normal",
+    "region": "shores_of_plenty",
+    "x": -176554,
+    "y": -12743
+  },
+  {
+    "name": "island.rum_runner_isle",
+    "type": "normal",
+    "region": "shores_of_plenty",
+    "x": -139030.234375,
+    "y": -118332.875
+  },
+  {
+    "name": "island.sandy_shallows",
+    "type": "normal",
+    "region": "shores_of_plenty",
+    "x": -377984.28125,
+    "y": -377711
+  },
+  {
+    "name": "island.lonely_isle",
+    "type": "normal",
+    "region": "shores_of_plenty",
+    "x": -197566.953125,
+    "y": -202424.125
+  },
+  {
+    "name": "island.rapier_cay",
+    "type": "normal",
+    "region": "shores_of_plenty",
+    "x": -396741.96875,
+    "y": -184713
+  },
+  {
+    "name": "island.sea_dogs_rest",
+    "type": "normal",
+    "region": "shores_of_plenty",
+    "x": -495383.21875,
+    "y": -10842.2734375
+  },
+  {
+    "name": "island.marauders_arch",
+    "type": "normal",
+    "region": "wilds",
+    "x": 381113.90625,
+    "y": -458711.59375
+  },
+  {
+    "name": "island.the_sunken_grove",
+    "type": "normal",
+    "region": "wilds",
+    "x": 298452.03125,
+    "y": -231815.96875
+  },
+  {
+    "name": "island.krakens_fall",
+    "type": "normal",
+    "region": "wilds",
+    "x": 445872,
+    "y": 63925
+  },
+  {
+    "name": "island.old_faithful_isle",
+    "type": "normal",
+    "region": "wilds",
+    "x": 164470.78125,
+    "y": -407145
+  },
+  {
+    "name": "island.the_crooked_masts",
+    "type": "normal",
+    "region": "wilds",
+    "x": 270684.09375,
+    "y": -19039.541015625
+  },
+  {
+    "name": "island.shipwreck_bay",
+    "type": "normal",
+    "region": "wilds",
+    "x": 136004.296875,
+    "y": -64544.5390625
+  },
+  {
+    "name": "island.dagger_tooth_outpost",
+    "type": "outpost",
+    "region": "wilds",
+    "x": 156150.578125,
+    "y": -217457.859375
+  },
+  {
+    "name": "island.shark_fin_camp",
+    "type": "skeleton_fort",
+    "region": "wilds",
+    "x": 309073.84375,
+    "y": -360599.53125
+  },
+  {
+    "name": "island.black_sand_atoll",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 269543.84375,
+    "y": -450469.03125
+  },
+  {
+    "name": "island.plunderes_plight",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 387388.59375,
+    "y": -304504
+  },
+  {
+    "name": "island.skull_keep",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 337646.0625,
+    "y": -117640
+  },
+  {
+    "name": "island.kraken_watchtower",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 67261,
+    "y": -317140
+  },
+  {
+    "name": "island.black_water_enclave",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 441136,
+    "y": -369130
+  },
+  {
+    "name": "island.isle_of_last_words",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 241620,
+    "y": -136891
+  },
+  {
+    "name": "island.tri_rock_isle",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 429446,
+    "y": -88665
+  },
+  {
+    "name": "island.booty_isle",
+    "type": "unknown",
+    "region": "ancient_isles",
+    "x": 4667,
+    "y": 512592
+  },
+  {
+    "name": "island.hidden_spring_keep",
+    "type": "unknown",
+    "region": "shores_of_plenty",
+    "x": -94053.3671875,
+    "y": -205139.0625
+  },
+  {
+    "name": "island.fort_of_the_damned",
+    "type": "fort_of_the_damned",
+    "region": "ancient_isles",
+    "x": 95732.6328125,
+    "y": 155303.390625
+  },
+  {
+    "name": "island.old_salts_atoll",
+    "type": "unknown",
+    "region": "ancient_isles",
+    "x": -290076,
+    "y": 399488
+  },
+  {
+    "name": "island.ancient_spire_outpost",
+    "type": "unknown",
+    "region": "ancient_isles",
+    "x": 368943.46875,
+    "y": 314692.4375
+  },
+  {
+    "name": "island.uncharted_island_n13",
+    "type": "unknown",
+    "region": "unknown",
+    "x": 221811.109375,
+    "y": 114644.3984375
+  },
+  {
+    "name": "island.uncharted_island_k9",
+    "type": "unknown",
+    "region": "unknown",
+    "x": 16984,
+    "y": -140305
+  },
+  {
+    "name": "island.reapers_hideout",
+    "type": "reapers_hideout",
+    "region": "unknown",
+    "x": -91763,
+    "y": 50368
+  },
+  {
+    "name": "island.scurvy_island",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 30490.46484375,
+    "y": -416240.65625
+  },
+  {
+    "name": "island.shark_tooth_key",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 334837.96875,
+    "y": 69160.6484375
+  },
+  {
+    "name": "island.galleons_grave_outpost",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 445530,
+    "y": -206340
+  },
+  {
+    "name": "island.liars_backbone",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 498028.90625,
+    "y": -34826.1796875
+  },
+  {
+    "name": "island.the_crows_nest_fortress",
+    "type": "unknown",
+    "region": "ancient_isles",
+    "x": 243609.984375,
+    "y": 348295.03125
+  },
+  {
+    "name": "island.magmas_tie",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 877442,
+    "y": 512347
+  },
+  {
+    "name": "island.brimstone_rocke",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 833102,
+    "y": 393447
+  },
+  {
+    "name": "island.glames_end",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 698165,
+    "y": 455469
+  },
+  {
+    "name": "island.roaring_sands",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 609259,
+    "y": 561009
+  },
+  {
+    "name": "island.glowstone_cay",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 939536,
+    "y": 402742
+  },
+  {
+    "name": "island.the_forsaken_brink",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 595182,
+    "y": 259626
+  },
+  {
+    "name": "island.cinder_islet",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 625073,
+    "y": 155520
+  },
+  {
+    "name": "island.cursewater_shores",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 837674,
+    "y": 94905
+  },
+  {
+    "name": "island.scorched_pass",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 787938.5625,
+    "y": -34994
+  },
+  {
+    "name": "island.morrows_peak_outpost",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 693052,
+    "y": 322523
+  },
+  {
+    "name": "island.ashen_reaches",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 667211.5625,
+    "y": 655842
+  },
+  {
+    "name": "island.the_devils_thirst",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 753368.5625,
+    "y": 547245
+  },
+  {
+    "name": "island.rubys_fall",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 860100,
+    "y": 264678
+  },
+  {
+    "name": "island.flintlock_peninsula",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 742670.5625,
+    "y": 176602
+  },
+  {
+    "name": "island.fetchers_rest",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 682992.5625,
+    "y": 27869
+  },
+  {
+    "name": "island.roaring_traders",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 608149.375,
+    "y": 471899.75
+  },
+  {
+    "name": "island.the_spoils_of_plenty_store",
+    "type": "unknown",
+    "region": "shores_of_plenty",
+    "x": -500547.96875,
+    "y": -243067.796875
+  },
+  {
+    "name": "island.the_wild_reasures_store",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 266183.25,
+    "y": -397093.625
+  },
+  {
+    "name": "island.stephen_spoils",
+    "type": "unknown",
+    "region": "ancient_isles",
+    "x": 70916.21875,
+    "y": 234798.375
+  },
+  {
+    "name": "island.the_north_star_seapost",
+    "type": "unknown",
+    "region": "shores_of_plenty",
+    "x": -150115.375,
+    "y": -63444.75
+  },
+  {
+    "name": "island.the_finest_trading_post",
+    "type": "unknown",
+    "region": "ancient_isles",
+    "x": -265233.625,
+    "y": 333644.75
+  },
+  {
+    "name": "island.three_paces_east_seapost",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 506639.625,
+    "y": -102829.75
+  },
+  {
+    "name": "island.brians_bazar",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 847894.25,
+    "y": 26633.375
+  },
+  {
+    "name": "island.molten_sands_fortress",
+    "type": "unknown",
+    "region": "devils_roar",
+    "x": 919368.875,
+    "y": 5376.6875
+  },
+  {
+    "name": "island.the_glorious_sea_dog_tavern",
+    "type": "unknown",
+    "region": "ancient_isles",
+    "x": 35123,
+    "y": 13570
+  },
+  {
+    "name": "island.tribute_peak",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 866999,
+    "y": -483413
+  },
+  {
+    "name": "island.the_coral_fortress",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": -77307,
+    "y": -703621
+  },
+  {
+    "name": "island.skd_feature_tale",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": -455572,
+    "y": 448242
+  },
+  {
+    "name": "island.shrine_of_hungering",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": 380890,
+    "y": -365920
+  },
+  {
+    "name": "island.shrine_of_the_coral_tomb",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": -183450,
+    "y": -389004
+  },
+  {
+    "name": "island.shrine_of_oceans_fortune",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": -424254.15625,
+    "y": 151731.0625
+  },
+  {
+    "name": "island.shrine_of_ancient_tears",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": 185322.46875,
+    "y": 501190.78125
+  },
+  {
+    "name": "island.shrine_of_flodded_embrace",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": 188650,
+    "y": 4700.11865234375
+  },
+  {
+    "name": "island.shrine_of_tribute",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": -214430,
+    "y": 381611
+  },
+  {
+    "name": "island.treasury_of_sunken_shores",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": -435050,
+    "y": -501300
+  },
+  {
+    "name": "island.treasury_of_the_lost_ancients",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": -153799.984375,
+    "y": 174350.015625
+  },
+  {
+    "name": "island.treasury_of_the_secret_wilds",
+    "type": "unknown",
+    "region": "sunken_kingdom",
+    "x": 104100,
+    "y": -471450
+  },
+  {
+    "name": "island.blind_mans_lagoon",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 223967.75,
+    "y": -313834
+  },
+  {
+    "name": "island.picaroon_palms",
+    "type": "unknown",
+    "region": "shores_of_plenty",
+    "x": -109068.078125,
+    "y": -408501.625
+  },
+  {
+    "name": "island.lagoon_of_whispers",
+    "type": "unknown",
+    "region": "shores_of_plenty",
+    "x": -396130.6875,
+    "y": 59934.796875
+  },
+  {
+    "name": "island.shiver_retreat",
+    "type": "unknown",
+    "region": "wilds",
+    "x": 375737,
+    "y": -23196
+  },
+  {
+    "name": "island.lookout_point",
+    "type": "unknown",
+    "region": "ancient_isles",
+    "x": -76026.265625,
+    "y": 481662
+  },
+  {
+    "name": "island.barnacle_cay",
+    "type": "unknown",
+    "region": "ancient_isles",
+    "x": 276256.40625,
+    "y": 231692.6875
+  },
+  {
+    "name": "island.royal_crest_fortress",
+    "type": "sea_fort",
+    "region": "unknown",
+    "x": -45142,
+    "y": -325186
+  },
+  {
+    "name": "island.imperial_crown_fortress",
+    "type": "sea_fort",
+    "region": "unknown",
+    "x": -551719,
+    "y": -13587
+  },
+  {
+    "name": "island.ancient_gold_fortress",
+    "type": "sea_fort",
+    "region": "unknown",
+    "x": -302784,
+    "y": 460883
+  },
+  {
+    "name": "island.old_brinestone_fortress",
+    "type": "sea_fort",
+    "region": "unknown",
+    "x": 24054,
+    "y": 568399
+  },
+  {
+    "name": "island.traitors_fate_fortress",
+    "type": "sea_fort",
+    "region": "unknown",
+    "x": 496848,
+    "y": -327780
+  },
+  {
+    "name": "island.mercys_end_fortress",
+    "type": "sea_fort",
+    "region": "unknown",
+    "x": 339559,
+    "y": 142493
+  }
+]
