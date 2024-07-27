@@ -4,17 +4,14 @@ A minimap for the pirate game Sea of Thieves.
 ## Installation
 1. Clone the repository
 ```bash
+# Clone this repository
 git clone https://github.com/c-128/sot_minimap.git
-```
+cd sot_minimap
 
-2. Build the binary
-```bash
+# Build the binary
 zig build
-```
 
-## Usage
-To run the project, use the following command:
-```
+# Run the app
 ./zig-out/bin/sot_map
 ```
 
