@@ -9,3 +9,17 @@ pub const Region = enum(u8) {
     sunken_kingdom,
     unknown,
 };
+
+pub const ShipType = enum(u8) {
+    sloop,
+    brigantine,
+    galleon,
+};
+
+pub const Crew = struct {
+    ship_type: ShipType,
+    ship_name: ?[]const u8,
+    players: u8,
+    x: f32,
+    y: f32,
+};

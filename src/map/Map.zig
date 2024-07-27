@@ -4,6 +4,7 @@ const ray = @import("raylib.zig");
 const Self = @This();
 
 islands: []sot.Island,
+crews: std.ArrayList(sot.Crew),
 camera: ray.Camera2D = .{
     .zoom = 1,
 },
@@ -37,6 +38,7 @@ pub fn update(self: *Self) void {
 
 pub fn draw(self: *Self) void {
     self.drawIslands();
+    self.drawCrews();
 }
 
 fn drawIslands(self: *Self) void {
@@ -89,5 +91,26 @@ fn drawIslands(self: *Self) void {
             text_spacing,
             ray.BLACK,
         );
+    }
+}
+
+fn drawCrews(self: *Self) void {
+    const font_size: c_int = 20;
+
+    const x: c_int = 10;
+    var y: c_int = 10;
+
+    ray.DrawText("Crews:", x, y, font_size, ray.BLACK);
+    y += font_size + 5;
+
+    for (self.crews.items) |crew| {
+        const name = switch (crew.ship_type) {
+            .sloop => "sloop",
+            .brigantine => "brigantine",
+            .galleon => "galleon",
+        };
+
+        ray.DrawText(name, x, y, font_size, ray.BLACK);
+        y += font_size + 5;
     }
 }

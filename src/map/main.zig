@@ -29,8 +29,28 @@ pub fn main() !void {
     };
     camera.zoom = 2;
 
+    var crews = std.ArrayList(sot.Crew).init(allocator);
+    defer crews.deinit();
+
+    try crews.append(.{
+        .ship_type = .sloop,
+        .ship_name = "ok",
+        .players = 2,
+        .x = 5,
+        .y = 20,
+    });
+
+    try crews.append(.{
+        .ship_type = .galleon,
+        .ship_name = "ok",
+        .players = 2,
+        .x = 5,
+        .y = 20,
+    });
+
     var map = Map{
         .islands = islands,
+        .crews = crews,
     };
 
     while (true) {
