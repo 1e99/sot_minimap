@@ -18,7 +18,7 @@ pub fn main() !void {
 
     std.log.info("Found Sot Process ID: {}", .{process_id});
 
-    var process = try sot.Process.init(process_id);
+    var process = try sot.Process.init(allocator, process_id);
     defer process.deinit();
 
     const cwd = std.fs.cwd();

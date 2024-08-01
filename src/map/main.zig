@@ -31,16 +31,12 @@ pub fn main() !void {
         .ship_type = .sloop,
         .ship_name = "ok",
         .players = 2,
-        .x = 5,
-        .y = 20,
     });
 
     try crews.append(.{
         .ship_type = .galleon,
         .ship_name = "ok",
         .players = 2,
-        .x = 5,
-        .y = 20,
     });
 
     var map = Map{

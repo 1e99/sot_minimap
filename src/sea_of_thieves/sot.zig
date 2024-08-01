@@ -20,6 +20,4 @@ pub const Crew = struct {
     ship_type: ShipType,
     ship_name: ?[]const u8,
     players: u8,
-    x: f32,
-    y: f32,
 };

@@ -13,7 +13,7 @@ output_dir: std.fs.Dir,
 pub fn extract(self: *Self) !void {
     std.log.info("Extracting islands...", .{});
 
-    // Level* https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Engine_Classes.h#L2017
+    // Level* https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Engine_Classes.h
     const level_address = try self.process.readValue(
         u64,
         self.process.world_address + 0x1b0,
@@ -25,7 +25,7 @@ pub fn extract(self: *Self) !void {
     );
 
     for (0..actor_array.length) |i| {
-        // Actor* https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Engine_Classes.h#L1419
+        // Actor* https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Engine_Classes.h
         const actor_address = try self.process.readValue(
             u64,
             actor_array.start_address + (i * 8),
@@ -36,11 +36,7 @@ pub fn extract(self: *Self) !void {
             actor_address + 24,
         );
 
-        var raw_string: [256]u8 = undefined;
-        const actor_name = try self.process.readFName(
-            &raw_string,
-            actor_id,
-        );
+        const actor_name = try self.process.readFName(actor_id);
 
         const eql = std.mem.eql(u8, actor_name, "IslandService");
         if (!eql) {
@@ -56,7 +52,7 @@ pub fn extract(self: *Self) !void {
 
 fn extractIslands(
     self: *Self,
-    // IslandService* https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Athena_Classes.h#L16284
+    // IslandService* https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Athena_Classes.h
     island_service_address: u64,
 ) !void {
     // TArray<Island*>
@@ -86,7 +82,7 @@ fn extractIslands(
 
 fn extractIsland(
     self: *Self,
-    // Island https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Athena_Structs.h#L2387
+    // Island https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Athena_Structs.h
     island_address: u64,
 ) !sot.Island {
     const name_id = try self.process.readValue(
@@ -94,13 +90,9 @@ fn extractIsland(
         island_address + 0x0,
     );
 
-    const name_buffer = try self.allocator.alloc(u8, 1024);
-    const name = try self.process.readFName(
-        name_buffer,
-        name_id,
-    );
+    const name = try self.process.readFName(name_id);
 
-    // Vector https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/CoreUObject_Structs.h#L185
+    // Vector https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/CoreUObject_Structs.h
     const center = try self.process.readValue(
         [3]f32,
         island_address + 0x18,
@@ -130,7 +122,7 @@ fn extractIsland(
         break :blk .unknown;
     };
 
-    return sot.Island{
+    return .{
         .name = name,
         .type = island_type,
         .region = island_region,

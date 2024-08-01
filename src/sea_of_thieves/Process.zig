@@ -75,6 +75,7 @@ fn isSoTProcess(process_id: u64) !bool {
     return true;
 }
 
+allocator: std.mem.Allocator,
 process_id: u64,
 memory_fd: posix.fd_t,
 
@@ -85,8 +86,11 @@ world_address: u64,
 gname_address: u64,
 gobject_address: u64,
 
-pub fn init(process_id: u64) !Self {
+gname_cache: std.AutoHashMap(u32, []const u8),
+
+pub fn init(allocator: std.mem.Allocator, process_id: u64) !Self {
     var self: Self = undefined;
+    self.allocator = allocator;
     self.process_id = process_id;
 
     var mem_path: [256]u8 = undefined;
@@ -104,7 +108,7 @@ pub fn init(process_id: u64) !Self {
         },
         0,
     );
-    errdefer self.deinit();
+    errdefer posix.close(self.memory_fd);
 
     // TODO: Find these patterns automatically:
     // Source: https://github.com/DougTheDruid/SoT-ESP-Framework/blob/main/memory_helper.py#L65
@@ -142,11 +146,20 @@ pub fn init(process_id: u64) !Self {
         gobject_start_address + gobject_offset + 7,
     );
 
+    self.gname_cache = std.AutoHashMap(u32, []const u8).init(allocator);
+    errdefer self.gname_cache.deinit();
+
     return self;
 }
 
-pub fn deinit(self: *const Self) void {
+pub fn deinit(self: *Self) void {
     posix.close(self.memory_fd);
+    var gnames = self.gname_cache.valueIterator();
+    while (gnames.next()) |gname| {
+        self.allocator.free(gname.*);
+    }
+
+    self.gname_cache.deinit();
 }
 
 pub fn isRunning(self: *const Self) bool {
@@ -161,7 +174,7 @@ pub fn isRunning(self: *const Self) bool {
     return true;
 }
 
-pub fn readValue(self: *const Self, comptime T: type, offset: u64) !T {
+pub fn readValue(self: *Self, comptime T: type, offset: u64) !T {
     var buffer: T = undefined;
 
     // TODO: Check return value
@@ -174,8 +187,15 @@ pub fn readValue(self: *const Self, comptime T: type, offset: u64) !T {
     return buffer;
 }
 
-pub fn readFName(self: *const Self, buffer: []u8, entry_id: u64) ![]u8 {
-    // TODO: Cache this if possible
+pub fn readFName(self: *Self, entry_id: u32) ![]const u8 {
+    const chaced_buffer = self.gname_cache.get(entry_id);
+    if (chaced_buffer) |buffer| {
+        return buffer;
+    }
+
+    var buffer = try self.allocator.alloc(u8, 0);
+    errdefer self.allocator.free(buffer);
+
     const name_address_address = try self.readValue(
         u64,
         self.gname_address + ((entry_id / 0x4_000) * 0x8),
@@ -188,8 +208,7 @@ pub fn readFName(self: *const Self, buffer: []u8, entry_id: u64) ![]u8 {
 
     name_address += 0x10;
 
-    var i: usize = 0;
-    while (i < buffer.len) {
+    while (true) {
         const char = try self.readValue(
             u8,
             name_address,
@@ -198,10 +217,30 @@ pub fn readFName(self: *const Self, buffer: []u8, entry_id: u64) ![]u8 {
             break;
         }
 
-        buffer[i] = char;
-        i += 1;
         name_address += 1;
+
+        const length = buffer.len;
+        buffer = try self.allocator.realloc(buffer, length + 1);
+        buffer[length] = char;
     }
 
-    return buffer[0..i];
+    try self.gname_cache.put(entry_id, buffer);
+    return buffer;
+
+    // var i: usize = 0;
+    // while (i < buffer.len) {
+    //     const char = try self.readValue(
+    //         u8,
+    //         name_address,
+    //     );
+    //     if (char == 0x00) {
+    //         break;
+    //     }
+
+    //     buffer[i] = char;
+    //     i += 1;
+    //     name_address += 1;
+    // }
+
+    // return buffer[0..i];
 }
