@@ -37,14 +37,16 @@ pub fn update(self: *Self) void {
 }
 
 pub fn draw(self: *Self) void {
-    self.drawIslands();
-    self.drawShips();
+    {
+        ray.BeginMode2D(self.camera);
+        defer ray.EndMode2D();
+
+        self.drawShips();
+        self.drawIslands();
+    }
 }
 
 fn drawIslands(self: *Self) void {
-    ray.BeginMode2D(self.camera);
-    defer ray.EndMode2D();
-
     ray.ClearBackground(self.water_color);
 
     var name_buffer: [1024]u8 = undefined;
@@ -95,14 +97,12 @@ fn drawShips(self: *Self) void {
     const player_pos = self.process.readPlayerPosition() catch null;
 
     if (player_pos) |pos| {
-        std.log.info("Zoom {}", .{self.camera.zoom});
-
         ray.DrawCircleV(
             .{
                 .x = pos.x,
                 .y = pos.y,
             },
-            50,
+            50 / self.camera.zoom,
             ray.RED,
         );
     }
