@@ -5,6 +5,10 @@ const Self = @This();
 
 islands: []sot.Island,
 crews: std.ArrayList(sot.Crew),
+min_x: f32 = -2_000,
+max_x: f32 = 2_000,
+min_y: f32 = -2_000,
+max_y: f32 = 2_000,
 camera: ray.Camera2D = .{
     .zoom = 1,
 },
@@ -20,6 +24,7 @@ pub fn update(self: *Self) void {
         var mouse_delta = ray.GetMouseDelta();
         mouse_delta = ray.Vector2Scale(mouse_delta, -1 / self.camera.zoom);
         self.camera.target = ray.Vector2Add(self.camera.target, mouse_delta);
+        self.clampCamera();
     }
 
     const wheel_delta = ray.GetMouseWheelMove();
@@ -29,11 +34,17 @@ pub fn update(self: *Self) void {
 
         self.camera.offset = mouse_pos;
         self.camera.target = mouse_world_pos;
+        self.clampCamera();
 
         var scale_factor = 1 + (0.25 * ray.fabsf(wheel_delta));
         if (wheel_delta < 0) scale_factor = 1 / scale_factor;
         self.camera.zoom = ray.Clamp(self.camera.zoom * scale_factor, 0.125, 64);
     }
+}
+
+fn clampCamera(self: *Self) void {
+    self.camera.target.x = ray.Clamp(self.camera.target.x, self.min_x, self.max_x);
+    self.camera.target.y = ray.Clamp(self.camera.target.y, self.min_y, self.max_y);
 }
 
 pub fn draw(self: *Self) void {

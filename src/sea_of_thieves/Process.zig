@@ -78,7 +78,7 @@ fn isSoTProcess(process_id: u64) !bool {
 process_id: u64,
 memory_fd: posix.fd_t,
 
-// World* https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Engine_Classes.h#L1236
+// World* https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Engine_Classes.h
 world_address: u64,
 
 // - https://github.com/untyper/ue4-gnames-gobjects-guide

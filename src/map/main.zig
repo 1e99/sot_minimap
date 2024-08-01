@@ -24,11 +24,6 @@ pub fn main() !void {
 
     ray.SetTargetFPS(60);
 
-    var camera = ray.Camera2D{
-        .zoom = 1,
-    };
-    camera.zoom = 2;
-
     var crews = std.ArrayList(sot.Crew).init(allocator);
     defer crews.deinit();
 
