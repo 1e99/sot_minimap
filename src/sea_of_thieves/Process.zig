@@ -226,21 +226,4 @@ pub fn readFName(self: *Self, entry_id: u32) ![]const u8 {
 
     try self.gname_cache.put(entry_id, buffer);
     return buffer;
-
-    // var i: usize = 0;
-    // while (i < buffer.len) {
-    //     const char = try self.readValue(
-    //         u8,
-    //         name_address,
-    //     );
-    //     if (char == 0x00) {
-    //         break;
-    //     }
-
-    //     buffer[i] = char;
-    //     i += 1;
-    //     name_address += 1;
-    // }
-
-    // return buffer[0..i];
 }
