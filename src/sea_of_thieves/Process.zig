@@ -1,14 +1,7 @@
 const std = @import("std");
+const sot = @import("sot.zig");
 const posix = std.posix;
 const Self = @This();
-
-pub const PlayerPosition = struct {
-    x: f32,
-    y: f32,
-    z: f32,
-    yaw: f32,
-    pitch: f32,
-};
 
 pub const TArray = packed struct {
     start_address: u64,
@@ -172,6 +165,74 @@ pub fn isRunning(self: *const Self) bool {
     };
 
     return true;
+}
+
+pub fn readPlayerPosition(self: *Self) !?sot.Position {
+    // GameInstance* https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Engine_Classes.h
+    const game_instance_address = try self.readValue(
+        u64,
+        self.world_address + 0x1c0,
+    );
+
+    if (game_instance_address == 0x0) {
+        return null;
+    }
+
+    // TArray<LocalPlayer*>
+    const local_players = try self.readValue(
+        TArray,
+        game_instance_address + 0x38,
+    );
+
+    if (local_players.length == 0) {
+        return null;
+    }
+
+    // LocalPlayer* https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Engine_Classes.h
+    const player_address = try self.readValue(
+        u64,
+        local_players.start_address,
+    );
+
+    if (player_address == 0x0) {
+        return null;
+    }
+
+    // PlayerController* https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Engine_Classes.h
+    const controller_address = try self.readValue(
+        u64,
+        player_address + 0x30,
+    );
+
+    if (controller_address == 0x0) {
+        return null;
+    }
+
+    // PlayerCameraManager* https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Engine_Classes.h
+    const camera_manager_address = try self.readValue(
+        u64,
+        controller_address + 0x458,
+    );
+
+    if (camera_manager_address == 0x0) {
+        return null;
+    }
+
+    const position = try self.readValue(
+        [5]f32,
+        camera_manager_address // No need to dereference pointers here
+        + 0x440 // CameraCacheEntry https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Engine_Structs.h
+        + 0x10 // MinimalViewInfo https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/Engine_Structs.h
+        + 0x0, // Vector https://github.com/DougTheDruid/SoT-Python-Offset-Finder/blob/main/SDKs/CPP-SDK/CoreUObject_Structs.h
+    );
+
+    return .{
+        .x = position[0],
+        .y = position[1],
+        .z = position[2],
+        .yaw = position[3],
+        .pitch = position[4],
+    };
 }
 
 pub fn readValue(self: *Self, comptime T: type, offset: u64) !T {

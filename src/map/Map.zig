@@ -4,13 +4,9 @@ const ray = @import("raylib.zig");
 const Self = @This();
 
 islands: []sot.Island,
-crews: std.ArrayList(sot.Crew),
-min_x: f32 = -2_000,
-max_x: f32 = 2_000,
-min_y: f32 = -2_000,
-max_y: f32 = 2_000,
+process: *sot.Process,
 camera: ray.Camera2D = .{
-    .zoom = 1,
+    .zoom = 0.01,
 },
 water_color: ray.Color = .{
     .r = 0x57,
@@ -24,7 +20,6 @@ pub fn update(self: *Self) void {
         var mouse_delta = ray.GetMouseDelta();
         mouse_delta = ray.Vector2Scale(mouse_delta, -1 / self.camera.zoom);
         self.camera.target = ray.Vector2Add(self.camera.target, mouse_delta);
-        self.clampCamera();
     }
 
     const wheel_delta = ray.GetMouseWheelMove();
@@ -34,22 +29,16 @@ pub fn update(self: *Self) void {
 
         self.camera.offset = mouse_pos;
         self.camera.target = mouse_world_pos;
-        self.clampCamera();
 
-        var scale_factor = 1 + (0.25 * ray.fabsf(wheel_delta));
+        var scale_factor = 1 + (0.5 * ray.fabsf(wheel_delta));
         if (wheel_delta < 0) scale_factor = 1 / scale_factor;
-        self.camera.zoom = ray.Clamp(self.camera.zoom * scale_factor, 0.125, 64);
+        self.camera.zoom = ray.Clamp(self.camera.zoom * scale_factor, 0.001, 0.1);
     }
-}
-
-fn clampCamera(self: *Self) void {
-    self.camera.target.x = ray.Clamp(self.camera.target.x, self.min_x, self.max_x);
-    self.camera.target.y = ray.Clamp(self.camera.target.y, self.min_y, self.max_y);
 }
 
 pub fn draw(self: *Self) void {
     self.drawIslands();
-    self.drawCrews();
+    self.drawShips();
 }
 
 fn drawIslands(self: *Self) void {
@@ -78,16 +67,13 @@ fn drawIslands(self: *Self) void {
             text_spacing,
         );
 
-        const x = island.x / 200;
-        const y = island.y / 200;
-
         // TODO: Draw the texture here
         ray.DrawCircleV(
             .{
-                .x = x,
-                .y = y,
+                .x = island.x,
+                .y = island.y,
             },
-            30,
+            font_size,
             ray.GRAY,
         );
 
@@ -95,8 +81,8 @@ fn drawIslands(self: *Self) void {
             ray.GetFontDefault(),
             @ptrCast(name),
             .{
-                .x = x - (label_size.x / 2),
-                .y = y - (label_size.y / 2),
+                .x = island.x - (label_size.x / 2),
+                .y = island.y - (label_size.y / 2),
             },
             font_size,
             text_spacing,
@@ -105,23 +91,19 @@ fn drawIslands(self: *Self) void {
     }
 }
 
-fn drawCrews(self: *Self) void {
-    const font_size: c_int = 20;
+fn drawShips(self: *Self) void {
+    const player_pos = self.process.readPlayerPosition() catch null;
 
-    const x: c_int = 10;
-    var y: c_int = 10;
+    if (player_pos) |pos| {
+        std.log.info("Zoom {}", .{self.camera.zoom});
 
-    ray.DrawText("Crews:", x, y, font_size, ray.BLACK);
-    y += font_size + 5;
-
-    for (self.crews.items) |crew| {
-        const name = switch (crew.ship_type) {
-            .sloop => "sloop",
-            .brigantine => "brigantine",
-            .galleon => "galleon",
-        };
-
-        ray.DrawText(name, x, y, font_size, ray.BLACK);
-        y += font_size + 5;
+        ray.DrawCircleV(
+            .{
+                .x = pos.x,
+                .y = pos.y,
+            },
+            50,
+            ray.RED,
+        );
     }
 }

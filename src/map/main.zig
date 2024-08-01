@@ -9,6 +9,16 @@ pub fn main() !void {
 
     const allocator = gpa.allocator();
 
+    const process_id = try sot.Process.findProcessId() orelse {
+        std.log.err("Could not find a Sot process.", .{});
+        return;
+    };
+
+    std.log.info("Found Sot Process ID: {}", .{process_id});
+
+    var process = try sot.Process.init(allocator, process_id);
+    defer process.deinit();
+
     const parsed = try std.json.parseFromSlice(
         []sot.Island,
         allocator,
@@ -24,24 +34,9 @@ pub fn main() !void {
 
     ray.SetTargetFPS(60);
 
-    var crews = std.ArrayList(sot.Crew).init(allocator);
-    defer crews.deinit();
-
-    try crews.append(.{
-        .ship_type = .sloop,
-        .ship_name = "ok",
-        .players = 2,
-    });
-
-    try crews.append(.{
-        .ship_type = .galleon,
-        .ship_name = "ok",
-        .players = 2,
-    });
-
     var map = Map{
         .islands = islands,
-        .crews = crews,
+        .process = &process,
     };
 
     while (true) {
