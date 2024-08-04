@@ -1,10 +1,12 @@
 const std = @import("std");
 const sot = @import("sea_of_thieves");
 const ray = @import("raylib.zig");
+const Language = @import("Language.zig");
 const Self = @This();
 
 islands: []sot.Island,
 process: *sot.Process,
+lang: *Language,
 camera: ray.Camera2D = .{
     .zoom = 0.01,
 },
@@ -49,18 +51,14 @@ pub fn draw(self: *Self) void {
 fn drawIslands(self: *Self) void {
     ray.ClearBackground(self.water_color);
 
-    var name_buffer: [1024]u8 = undefined;
+    //var name_buffer: [1024]u8 = undefined;
     const font_size: f32 = 20 / self.camera.zoom;
     const text_spacing: f32 = 2 / self.camera.zoom;
 
     const font = ray.GetFontDefault();
 
     for (self.islands) |island| {
-        const name = std.fmt.bufPrint(
-            &name_buffer,
-            "{s}\x00",
-            .{island.name},
-        ) catch "";
+        const name = self.lang.translate(island.name);
 
         const label_size = ray.MeasureTextEx(
             font,

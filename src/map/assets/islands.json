@@ -343,7 +343,7 @@
     "y": -450469.03125
   },
   {
-    "name": "island.plunderes_plight",
+    "name": "island.plunderers_plight",
     "type": "unknown",
     "region": "wilds",
     "x": 387388.59375,
@@ -490,7 +490,7 @@
     "y": 393447
   },
   {
-    "name": "island.glames_end",
+    "name": "island.flames_end",
     "type": "unknown",
     "region": "devils_roar",
     "x": 698165,
@@ -630,7 +630,7 @@
     "y": -102829.75
   },
   {
-    "name": "island.brians_bazar",
+    "name": "island.brians_bazaar",
     "type": "unknown",
     "region": "devils_roar",
     "x": 847894.25,
@@ -700,7 +700,7 @@
     "y": 501190.78125
   },
   {
-    "name": "island.shrine_of_flodded_embrace",
+    "name": "island.shrine_of_flooded_embrace",
     "type": "unknown",
     "region": "sunken_kingdom",
     "x": 188650,
