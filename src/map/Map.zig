@@ -41,8 +41,8 @@ pub fn draw(self: *Self) void {
         ray.BeginMode2D(self.camera);
         defer ray.EndMode2D();
 
-        self.drawShips();
         self.drawIslands();
+        self.drawShips();
     }
 }
 
@@ -102,7 +102,7 @@ fn drawShips(self: *Self) void {
                 .x = pos.x,
                 .y = pos.y,
             },
-            50 / self.camera.zoom,
+            10 / self.camera.zoom,
             ray.RED,
         );
     }
